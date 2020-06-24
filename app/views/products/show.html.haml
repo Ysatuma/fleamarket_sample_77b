@@ -6,54 +6,79 @@
     .detail__wrapper__product
       .detail__wrapper__product__name
         商品サンプル
+        -# = @product.name
       .detail__wrapper__product__picts
         .detail__wrapper__product__picts__main
           メインピクチャ
+          -# = image_tag ""
         %ul.detail__wrapper__product__picts__subs
           %li.detail__wrapper__product__picts__subs__li
             サブピクチャ1
+            -# = image_tag ""
           %li.detail__wrapper__product__picts__subs__li
             サブピクチャ2
+            -# = image_tag ""
           %li.detail__wrapper__product__picts__subs__li
             サブピクチャ3
+            -# = image_tag ""
           %li.detail__wrapper__product__picts__subs__li
             サブピクチャ4
+            -# = image_tag ""
 
       .detail__wrapper__product__price
         ¥30,000
+        -# = number_to_currency(@product.price)
       (税込)送料込み
       .detail__wrapper__product__text
         本商品の説明文
+        -# = @product.text
 
       %table.detail__wrapper__product__info{border: "1"}
         %tr
           %th 出品者
-          %td yamada
+          %td 
+            yamada
+            -# = @product.user.nickname
         %tr
           %th カテゴリー
           %td 
             .detail__wrapper__product__info_category
               キッズ
+              -# = @grand_parent.name
             .detail__wrapper__product__info_category
               アウター
+              -# = @parent.name
+            .detail__wrapper__product__info_category
+              アウター
+              -# = @product.catogory.name
         %tr
           %th ブランド
-          %td
+          %td 
+            -# = @product.brand
         %tr
           %th 商品のサイズ
           %td
+            -# = @product.size.text
         %tr
           %th 商品の状態
-          %td 未使用に近い
+          %td 
+            未使用に近い
+            -# = @product.status.text
         %tr
           %th 配送料の負担
-          %td 送料込み（出品者負担）
+          %td 
+            送料込み（出品者負担）
+            -# = @product.postage.text
         %tr
           %th 発送元の地域
-          %td 岩手県
+          %td 
+            岩手県
+            -# = @product.area.name
         %tr
           %th 発送の目安
-          %td 4-7日で発送
+          %td 
+            4-7日で発送
+            -# = @product.shipping_date.text
 
       .detail__wrapper__product__under
         .detail__wrapper__product__under__favorite

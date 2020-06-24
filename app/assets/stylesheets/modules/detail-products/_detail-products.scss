@@ -84,9 +84,11 @@
 
         &__bad-report{
           font-size: 14px;
+          color: #000000;
           line-height: 34px;
           padding: 0px 10px;
           @include set_border_with_radious(#000000,5px);
+          text-decoration: none;
         }
       }
     }
