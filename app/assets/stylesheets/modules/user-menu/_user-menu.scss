@@ -28,34 +28,6 @@
     padding: 40px 150px;
     display: flex;
 
-    &__list{
-      width: 30%;
-
-      &__mypage, &__furipay, &__setting{
-          margin-bottom: 20px;
-          font-weight: bold;
-
-          &--link{
-            display: flex;
-            justify-content: space-between;
-            text-decoration: none;
-            color: #000000  ;
-          }
-          & li{
-            background-color: #ffffff;
-            font-size: 15px;
-            font-weight: normal;;
-            line-height: 45px;
-            padding-left: 15px;
-            border-bottom: solid 1px $border-color;          
-        }
-        &__arrow{
-          margin-right: 15px;
-        }
-      }
-    }
-
-
     &__contents{
       width: 100%;
       margin-left: 40px;

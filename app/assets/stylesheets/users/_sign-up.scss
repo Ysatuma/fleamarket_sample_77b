@@ -1,0 +1,133 @@
+.account__sign-up__page{
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  position: relative;
+  .signup__main{
+    &--white{
+      margin-left: 382px;
+      @include boxsize(700px,auto);
+      background-color: white;
+      &__top{
+        border-bottom: 1px solid;
+        border-color: whitesmoke;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        h1{
+          font-size: 23px;
+          font-weight: 550;
+        }
+      }
+      &__main{
+        @include boxcenter();
+        &--member{
+          padding-top: 30px;
+          .field{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-bottom: 20px;
+            &__label{
+              display: flex;
+              justify-content: left;
+              h2{
+                font-weight: 550;
+                margin-top: 7px;
+              }
+              i{
+              background-color: #ea352d;
+              border: 1px solid;
+              border-color: #ea352d;
+              padding: 2px;
+              font-size: 13px;
+              color: white;
+              border-radius: 3px;
+              margin: 5px;
+              }
+              span{
+                margin-top: 7px;
+              }
+            }
+            .class__note{
+              color: gray;
+              font-size: 13px;
+            }
+            .input__default{
+              @include boxsize(350px,40px);
+              margin-top: 10px;
+              border-radius: 3px;
+            }
+            .input__default__password{
+              @include boxsize(350px,40px);
+              margin-top: 10px;
+              margin-bottom: 5px;
+              border-radius: 3px;
+            }
+          }
+        }
+        &--personal{
+          h3{
+            font-weight: 600;
+            margin-bottom: 5px;
+          }
+          p{
+            font-size: 15px;
+            margin-bottom: 10px;
+          }
+          .field{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-bottom: 20px;
+            &__label{
+              display: flex;
+              justify-content: left;
+              h2{
+                font-weight: 550;
+                margin-top: 7px;
+              }
+              i{
+                background-color: #ea352d;
+                border: 1px solid;
+                border-color: #ea352d;
+                padding: 2px;
+                font-size: 13px;
+                color: white;
+                border-radius: 3px;
+                margin: 5px;
+              }
+            }
+
+            .input__default{
+              @include boxsize(170px,40px);
+              margin-top: 10px;
+              border-radius: 3px;
+            }
+            .year{
+              @include boxsize(90px,40px);
+              margin: 4px;
+            }
+            .month{
+              @include boxsize(90px,40px);
+              margin: 4px;
+            }
+            .day{
+              @include boxsize(90px,40px);
+              margin: 4px;
+            }
+            .class__note{
+              color: gray;
+              font-size: 13px;
+            }
+          }
+        }
+        .actions{
+          .next-btn{
+            background-color: #ea352d;
+            border-color: #ea352d;
+            border-radius: 5px;
+            color: white;
+            margin: 30px 0px;
+            @include boxsize(355px,50px);
+          }
+        }
+      }
+    }
+  }
+}

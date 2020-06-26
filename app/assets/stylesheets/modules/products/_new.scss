@@ -104,6 +104,15 @@
             @include require;
           }
         }
+        &__size {
+          @include titleFlex;
+          &__text {
+            @include title;
+          }
+          &__alert {
+            @include require;
+          }
+        }
         &__brand {
           @include titleFlex;
           &__text {
@@ -262,6 +271,21 @@
     }
   }
 }
-.html {
+.htmlText {
+  margin: 16px 0 16px;
+  font-size: 14px;
   color: red;
+}
+
+.hidden1, .hidden2 {
+  margin-top: 16px;
+  display: none;
+}
+
+.hidden3, .hidden-size {
+  display: none;
+}
+
+.category-select {
+  background-color: white;
 }

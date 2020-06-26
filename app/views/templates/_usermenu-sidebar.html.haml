@@ -1,0 +1,59 @@
+.user-menu__main__list
+  %ul.user-menu__main__list__mypage
+    %li
+      = render "templates/list", code:101 ,name:"マイページ"
+    %li
+      = render "templates/list", code:102 ,name:"お知らせ"
+    %li
+      = render "templates/list", code:103 ,name:"やることリスト"
+    %li
+      = render "templates/list", code:104 ,name:"いいね！一覧"
+    %li
+      = link_to "#", class:"user-menu__main__list__mypage--link" do
+        出品する      
+        .user-menu__main__list__mypage__arrow
+          ＞
+    %li
+      = render "templates/list", code:106 ,name:"下書き一覧"
+    %li
+      = render "templates/list", code:107 ,name:"出品した商品-出品中"
+    %li
+      = render "templates/list", code:108 ,name:"出品した商品-取引中"
+    %li
+      = render "templates/list", code:109 ,name:"出品した商品-売却済み"
+    %li
+      = render "templates/list", code:110 ,name:"購入した商品-取引中"
+    %li
+      = render "templates/list", code:111 ,name:"購入した商品-過去の取引"
+    %li
+      = render "templates/list", code:112 ,name:"ニュース一覧"
+    %li
+      = render "templates/list", code:113 ,name:"評価一覧"
+    %li
+      = render "templates/list", code:114 ,name:"ガイド"
+    %li
+      = render "templates/list", code:115 ,name:"お問い合わせ"
+
+  %ul.user-menu__main__list__furipay
+    フリペイ
+    %li
+      = render "templates/list", code:201 ,name:"売り上げ・振込申請"
+    %li
+      = render "templates/list", code:202 ,name:"ポイント"
+
+  %ul.user-menu__main__list__setting
+    設定
+    %li
+      = render "templates/list", code:301 ,name:"プロフィール"
+    %li
+      = render "templates/list", code:302 ,name:"発送元・お届け先住所変更"
+    %li
+      = render "templates/list", code:303 ,name:"支払い方法"
+    %li
+      = render "templates/list", code:304 ,name:"メール/パスワード"
+    %li
+      = render "templates/list", code:305 ,name:"本人情報"
+    %li
+      = render "templates/list", code:306 ,name:"電話番号の確認"
+    %li
+      = render "templates/list", code:307 ,name:"ログアウト"

@@ -120,16 +120,24 @@
 - has_many :pruducts
 - has_many :cards
 - has_many :comments
+- belongs_to :address
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
 |city|string|null: false|
 |number|string|null: false|
 |building|string||
 |zip|integer|null: false|
+|phonenumber|string||
 |area|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :area
+- belongs_to :user
 ## Cardsテーブル
 |Column|Type|Options|
 |------|----|-------|

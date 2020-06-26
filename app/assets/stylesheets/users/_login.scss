@@ -1,0 +1,76 @@
+.account__login__page{
+  background-color: #f5f5f5;
+  position: relative;
+  .login__main{
+    @include position--center();
+    &__white{
+      background-color: white;
+      @include box-size(480px,500px);
+      &--top{
+        height: 120px;
+        border-bottom: 1px solid;
+        border-color: #f5f5f5;
+        h2{
+          text-align: center;
+          font-size: 14px;
+          padding-top: 20px;
+        }
+        &__btn{
+          background-color: #0099e8;
+          margin-top: 20px;
+          text-align: center;
+          margin-left: 90px;
+          @include box-size(300px,40px);
+          .sign-up-btn{
+            text-decoration: none;
+            color: white;
+            line-height: 40px;
+          }
+        }
+      }
+      &--main{
+        padding-top: 20px;
+        @include position--center();
+        .input__default{
+          margin-bottom: 35px;
+          @include box-size(420px,40px)
+        }
+        .actions{
+          @include position--center();
+          .btn{
+            background-color: #ea352d;
+            border-color: #ea352d;
+            color: white;
+            width: 420px;
+            height: 50px;
+          }
+        }
+        &__btn{
+          margin-top: 25px;
+          .password-btn{
+            color: #0099e8;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  // .login__footer{
+  //   position: absolute;
+  //   bottom: 0px;
+  //   background-color: #f5f5f5;
+  //   text-align: center;
+  //   @include box-size(100vw,200px);
+    
+  //   .img{
+  //     // margin-top: 100px;
+  //     padding-top: 100px;
+  //     height: 55px;
+  //   }
+  //   .simple-footer__text{
+  //     font-size: 16px;
+  //     margin-left: 25px;
+  //     color: gray;
+  //   }
+  // }
+}
