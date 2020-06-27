@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
     # データ入力後にコメントアウトを解除
     @product = Product.include(:users).find(params[:id])
     @other_products = Product.where(category_id: params[:id])
-    @parent = Category.find(params[:id]).parent
+    @parent = @product.category.parent
     @grand_parent = @parent.parent
   end
 
