@@ -15,7 +15,22 @@
   .search-header__lower
     .search-header__lower__products
       .search-header__lower__products__categories
-        カテゴリー
+        .search-header__lower__products__categories__title
+          カテゴリー
+        .search-header__lower__products__categories__lists
+          .search-header__lower__products__categories__lists--lv1
+            - categories.each do |category1|
+              .search-header__lower__products__categories__lists--lv1__content
+                = category1.name
+                .search-header__lower__products__categories__lists--lv1__content--lv2
+                  - category1.children.each do |category2|
+                    .search-header__lower__products__categories__lists--lv1__content--lv2__content
+                      = category2.name
+                      .search-header__lower__products__categories__lists--lv1__content--lv2__content--lv3
+                        - category2.children.each do |category3|
+                          .search-header__lower__products__categories__lists--lv1__content--lv2__content--lv3__content
+                            = category3.name
+               
       .search-header__lower__products__brand
         ブランド
     .search-header__lower__user

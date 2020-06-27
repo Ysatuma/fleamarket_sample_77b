@@ -4,6 +4,7 @@ class UserMenuController < ApplicationController
   end
 
   def show
+    @categories = Category.where(ancestry: nil)
     @code = params[:id]
     @name = params[:name]
   end

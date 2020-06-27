@@ -18,7 +18,7 @@ others_pets.children.create([
 ])
 
 others_foods = others.children.create(name: "食品")
-ohters_foods.children.create([
+others_foods.children.create([
   {name: "菓子"},
   {name: "米"},
   {name: "野菜"},
@@ -31,7 +31,7 @@ ohters_foods.children.create([
 ])
 
 others_drinks = others.children.create(name: "飲料/酒")
-ohters_drinks.children.create([
+others_drinks.children.create([
   {name: "コーヒー"},
   {name: "ソフトドリンク"},
   {name: "ミネラルウォーター"},
@@ -56,7 +56,7 @@ others_daily_necessities.children.create([
 ])
 
 others_antiques = others.children.create(name: "アンティーク/コレクション")
-ohters_antiques.children.create([
+others_antiques.children.create([
   {name: "雑貨"},
   {name: "工芸品"},
   {name: "家具"},
@@ -65,7 +65,7 @@ ohters_antiques.children.create([
 ])
 
 others_stationeries = others.children.create(name: "文房具/事務用品")
-ohters_stationeries.children.create([
+others_stationeries.children.create([
   {name: "筆記具"},
   {name: "ノート/メモ帳"},
   {name: "テープ/マスキングテープ"},
@@ -79,7 +79,7 @@ ohters_stationeries.children.create([
 ])
 
 others_office_works = others.children.create(name: "事務/店舗用品")
-ohters_office_works.children.create([
+others_office_works.children.create([
   {name: "オフィス用品一般"},
   {name: "オフィス家具"},
   {name: "店舗用品"},
