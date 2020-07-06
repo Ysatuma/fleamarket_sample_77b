@@ -37,7 +37,7 @@
     .search-header__lower__user
       - if user_signed_in?
         .search-header__lower__user__registration
-          = link_to 'マイページ', user_menu_index_path
+          = link_to 'マイページ', user_menu_path(101), name:'マイページ'
       - else
         .search-header__lower__user__login
           = link_to 'ログイン', new_user_session_path

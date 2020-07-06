@@ -77,7 +77,7 @@ class ProductsController < ApplicationController
     if product
       product.destroy
     end
-    redirect_to user_menu_index_path 
+    redirect_to user_menu_path(id: 101, name: 'マイページ')
   end
 
   # ユーザーメニューの出品情報を表示

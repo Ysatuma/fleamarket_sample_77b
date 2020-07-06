@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'toppage#index'
 
-  resources :user_menu, only: [:index, :show, :create]
+  resources :user_menu, only: [:show, :create]
 
   resources :products, only: [:index, :new, :create, :destroy]
 
