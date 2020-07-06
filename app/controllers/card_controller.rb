@@ -11,7 +11,7 @@ class CardController < ApplicationController
 
   #payjpとCardのデータベース作成を実施
   def create
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
     if params['payjptoken'].blank?
       redirect_to action: "new"
     else
@@ -27,7 +27,7 @@ class CardController < ApplicationController
 
   def index #Cardのデータpayjpに送り情報を取り出します
     if @card
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
       @card_exp = card_expiration(@default_card_information)
@@ -36,7 +36,7 @@ class CardController < ApplicationController
 
   def destroy #PayjpとCardデータベースを削除します
     if @card
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
       @card.delete
@@ -52,7 +52,7 @@ class CardController < ApplicationController
     elsif current_user.address.blank? #届け先住所が無い場合
       redirect_to new_user_address_path(current_user)
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
       Payjp::Charge.create(
       amount: @product.price,
       customer: @card.customer_id,
