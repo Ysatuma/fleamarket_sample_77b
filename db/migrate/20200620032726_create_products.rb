@@ -5,12 +5,12 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.text :text, null: false
       t.integer :price, null: false, index: true
       t.string :brand, index: true
-      t.references :category, null: false, foreign_key: true
-      t.references :size, foreign_key: true
-      t.references :status, foreign_key: true
-      t.references :postage, null: false, foreign_key: true
-      t.references :area, null: false, foreign_key: true
-      t.references :shipping_date, null: false, foreign_key: true
+      t.references :category, null: false
+      t.references :size
+      t.references :status
+      t.references :postage, null: false
+      t.references :area, null: false
+      t.references :shipping_date, null: false
       t.boolean :purchase, null: false, default: false
       t.timestamps
     end

@@ -1,0 +1,27 @@
+.category-list{
+
+  &__name{
+    background-color: $top-color;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0px;
+  }
+
+  &__children{
+    background-color: $product-content-color;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: scroll;    
+
+    &__links{
+      margin: 20px 10px;
+      &--link{
+        text-decoration: none;
+        font-size: 14px;
+        color: goldenrod ;
+      }
+    }
+  }    
+}

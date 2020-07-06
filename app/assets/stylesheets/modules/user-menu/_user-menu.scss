@@ -2,6 +2,10 @@
   display: block !important;
 }
 
+.hidden{
+  display: none;
+}
+
 .selected{
   background-color: #ffffff !important;
   border-top: solid 2px red;

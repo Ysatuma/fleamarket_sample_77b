@@ -179,6 +179,10 @@
 
       &__products{
         @include set_boxes_to_horizontal(center);
+
+        &__item{
+          margin-right: 10px;
+        }
       }
     }
   }

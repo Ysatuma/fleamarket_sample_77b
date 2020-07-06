@@ -1,0 +1,48 @@
+.address-new-title {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.address-frame {
+  display: block;
+  border: 1px solid $textColor;
+  border-radius: 4px 4px 4px 4px;
+  width: 50%;
+  height: 43px;
+  padding-left: 10px;
+  margin: 0 auto;
+}
+.address-flex {
+  @include titleFlex;
+  width: 50%;
+  margin: 0 auto;
+}
+.addresses-text {
+  @include title;
+}
+.addresses-alert {
+  @include require
+}
+.addresses-any {
+  background-color: #bfbfbf;
+  color: white;
+  margin-left: 8px;
+  width: 32px;
+  padding: 0 4px 0;
+  font-size: 12px;
+  font-weight: bold;
+  height: 16px;
+  line-height: 16px;
+  border-radius: 4px 4px 4px 4px;
+}
+.address-submit {
+  background-color: rgb(255, 2, 17);
+  display: block;
+  border: 1px solid $textColor;
+  border-radius: 4px 4px 4px 4px;
+  width: 50%;
+  height: 43px;
+  color: white;
+  margin: 16px auto;
+}

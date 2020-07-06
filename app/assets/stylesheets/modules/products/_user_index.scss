@@ -1,0 +1,49 @@
+.user-products__title {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  height: 100px;
+  line-height: 100px;
+  background-color: $borderColor;
+  border-bottom: 1px solid $textColor;
+}
+.user-products__items {
+  height: 100px;
+  background-color: yellow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $textColor;
+  &__title {
+    font-weight: bold;
+    margin-left: 20px;
+  }
+  &__box {
+    display: flex;
+    &__edit {
+      background-color: pink;
+      margin-right: 20px;
+      border-radius: 4px 4px 4px 4px;
+      &__btn {
+        display: block;
+        width: 80px;
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+        
+      }
+    }
+    &__destroy {
+      background-color: pink;
+      margin-right: 20px;
+      border-radius: 4px 4px 4px 4px;
+      &__btn {
+        display: block;
+        width: 80px;
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+      }
+    }
+  }
+}

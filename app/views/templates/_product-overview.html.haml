@@ -1,14 +1,23 @@
 .product-overview
   .product-overview__image
-    ピクチャ
+    = link_to product_path(product.id, category_id: product.category_id) do
+      = image_tag product.pictures[0].image.url, size:'190x150'
   .product-overview__name
-    商品サンプル
+    -# 商品サンプル
+    = product.name
   .product-overview__info
     .product-overview__info__price
-      ¥3,000
+      -# ¥3,000
+      = number_to_currency(product.price)
       .product-overview__info__price__tax
         (税込)
     .product-overview__info__favorites
       = icon('fas','star')
       0
+      .product-overview__info__status
+        - if product.purchase
+          売り切れ
+        - else
+          出品中
+          
               

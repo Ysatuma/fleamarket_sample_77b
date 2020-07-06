@@ -28,17 +28,24 @@
 @import "modules/exhibition-btn";
 @import "modules/product-overview";
 @import "modules/toppage/top";
+
+@import "modules/products/category-list.scss";
+@import "modules/products/index";
 @import "modules/products/new";
 @import "modules/products/create";
+@import "modules/products/show";
+@import "modules/products/user_index";
 @import "modules/user-menu/usermenu-sidebar";
 @import "modules/user-menu/user-menu";
-@import "modules/detail-products/detail-products.scss";
+
 @import "purchase/complete";
 @import "purchase/confirmation";
-
+@import "modules/addresses/new";
+@import "modules/users/edit";
 
 //usersのフォルダーのscss
 @import "users/login";
+@import "users/sign-up";
 
 //paswordのフォルダーのscss
 @import "users/sign-up";

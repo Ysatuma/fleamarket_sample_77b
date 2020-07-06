@@ -1,7 +1,8 @@
 .search-header
   .search-header__upper
     .search-header__upper__logo
-      = image_tag "header/logo.png", size:"140x40", class:"search-header__upper__logo__image"
+      = link_to root_path do
+        = image_tag "header/logo.png", size:"140x40", class:"search-header__upper__logo__image"
     .search-header__upper__form 
       = form_with url:'#', class:"search-header__upper__form__field"   do |form|
         .search-header__upper__form__field__input
@@ -21,20 +22,24 @@
           .search-header__lower__products__categories__lists--lv1
             - categories.each do |category1|
               .search-header__lower__products__categories__lists--lv1__content
-                = category1.name
+                = link_to category1.name, products_path(id: category1.id,all_view:'false'), class:"search-header__lower__products__categories__lists--lv1__content--link"
                 .search-header__lower__products__categories__lists--lv1__content--lv2
                   - category1.children.each do |category2|
                     .search-header__lower__products__categories__lists--lv1__content--lv2__content
-                      = category2.name
+                      = link_to category2.name, products_path(id: category2.id,all_view:'false'), class:"search-header__lower__products__categories__lists--lv1__content--lv2__content--link"
                       .search-header__lower__products__categories__lists--lv1__content--lv2__content--lv3
                         - category2.children.each do |category3|
                           .search-header__lower__products__categories__lists--lv1__content--lv2__content--lv3__content
-                            = category3.name
+                            = link_to category3.name, products_path(id: category3.id,all_view:'false'), class:"search-header__lower__products__categories__lists--lv1__content--lv2__content--lv3__content--link"
                
       .search-header__lower__products__brand
         ブランド
     .search-header__lower__user
-      .search-header__lower__user__login
-        ログイン
-      .search-header__lower__user__registration
-        新規登録              
+      - if user_signed_in?
+        .search-header__lower__user__registration
+          = link_to 'マイページ', user_menu_index_path
+      - else
+        .search-header__lower__user__login
+          = link_to 'ログイン', new_user_session_path
+        .search-header__lower__user__registration
+          = link_to '新規登録', new_user_registration_path

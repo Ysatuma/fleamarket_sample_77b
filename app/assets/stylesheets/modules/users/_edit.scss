@@ -1,0 +1,39 @@
+.user-edit-title {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+.user-edit__form__center {
+  &__name {
+    &__text {
+      @include title;
+      width: 50%;
+      margin: 16px auto;
+    }
+  }
+  &__input {
+    display: block;
+    border: 1px solid $textColor;
+    border-radius: 4px 4px 4px 4px;
+    width: 50%;
+    height: 43px;
+    padding-left: 10px;
+    margin: 0 auto;
+  }
+  &__comment {
+    &__text {
+      @include title;
+      width: 50%;
+      margin: 16px auto;
+    }
+  }
+  &__textarea {
+    display: block;
+    border: 1px solid $textColor;
+    border-radius: 4px 4px 4px 4px;
+    width: 50%;
+    height: 193px;
+    padding-left: 10px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,35 @@
+.product-level
+  = link_to "FURIMA", root_path, class:"product-evel--top"
+  %span 
+    ＞ 
+  %span
+    = link_to 'カテゴリ一覧', products_path(all_view:'true')
+  - unless(level == nil)
+    - if(level == 0)
+      %span
+        ＞
+        = link_to products_path(id: category.id, all_view:'false') do
+          = category.name
+
+    -if(level == 1)
+      %span
+        ＞
+        = link_to products_path(id: category.parent.id, all_view:'false') do
+          = category.parent.name
+      %span
+        ＞
+        = link_to products_path(id: category.id, all_view:'false') do
+          = category.name
+    -if(level == 2)
+      %span
+        ＞
+        = link_to products_path(id: category.parent.parent.id, all_view:'false') do
+          = category.parent.parent.name
+      %span
+        ＞
+        = link_to products_path(id: category.parent.id, all_view:'false') do
+          = category.parent.name
+      %span
+        ＞
+        = link_to products_path(id: category.id, all_view:'false') do
+          = category.name

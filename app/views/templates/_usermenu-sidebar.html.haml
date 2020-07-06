@@ -16,7 +16,10 @@
     %li
       = render "templates/list", code:106 ,name:"下書き一覧"
     %li
-      = render "templates/list", code:107 ,name:"出品した商品-出品中"
+      = link_to user_products_path(current_user), class:"user-menu__main__list__mypage--link" do
+        出品した商品-出品中
+        .user-menu__main__list__mypage__arrow
+          ＞
     %li
       = render "templates/list", code:108 ,name:"出品した商品-取引中"
     %li
@@ -44,9 +47,15 @@
   %ul.user-menu__main__list__setting
     設定
     %li
-      = render "templates/list", code:301 ,name:"プロフィール"
+      = link_to edit_user_path(current_user), class:"user-menu__main__list__mypage--link" do
+        = "プロフィール"       
+        .user-menu__main__list__mypage__arrow
+          ＞
     %li
-      = render "templates/list", code:302 ,name:"発送元・お届け先住所変更"
+      = link_to new_user_address_path(current_user), class:"user-menu__main__list__mypage--link" do
+        = "発送元・お届け先住所変更"       
+        .user-menu__main__list__mypage__arrow
+          ＞
     %li
       = render "templates/list", code:303 ,name:"支払い方法"
     %li
@@ -56,4 +65,7 @@
     %li
       = render "templates/list", code:306 ,name:"電話番号の確認"
     %li
-      = render "templates/list", code:307 ,name:"ログアウト"
+      = link_to destroy_user_session_path, method: :delete, class:"user-menu__main__list__mypage--link" do
+        = "ログアウト"       
+        .user-menu__main__list__mypage__arrow
+          ＞

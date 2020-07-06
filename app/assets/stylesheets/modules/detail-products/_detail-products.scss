@@ -25,18 +25,17 @@
 
         &__main{
           @include set_detailpage_box(100%,400px);
-          background-color: gold;
         }
 
         &__subs{
           @include set_boxes_to_horizontal(space-around);
           flex-wrap: wrap;
           overflow: scroll;
-
+          list-style-type: none;
           &__li{
             @include set_detailpage_box(120px,80px);
-            background-color: hotpink;
             margin: 5px 0px;
+            display: inline;
           }
         }
       }
@@ -68,6 +67,51 @@
           @include set_table_layout(75%,left);
           padding: 10px;
         }      
+      }
+    }
+
+    &__links{
+      display: flex;
+      justify-content: space-around;
+      padding-top: 20px;
+      &__edit{
+        height: 40px;
+        width: 35%;
+        background-color: red;
+        cursor: pointer;
+        border-radius: 20px;
+        &__btn{
+        text-decoration: none;
+        color: white;
+        line-height: 40px;
+        
+        }
+      }  
+      &__delete{
+        height: 40px;
+        width: 35%;
+        background-color: red;
+        cursor: pointer;
+        border-radius: 20px;
+        &__btn{
+        text-decoration: none;
+        color: white;
+        line-height: 40px;
+        }
+      }
+      &__buy{
+        height: 60px;
+        width: 60%;
+        background-color: red;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 20px;
+        &__btn{
+          text-decoration: none;
+          font-size: 22px;
+          color: white;
+          line-height: 60px;
+        }
       }
     }
     

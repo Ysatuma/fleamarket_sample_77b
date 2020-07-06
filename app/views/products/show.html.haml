@@ -1,59 +1,77 @@
 = render 'templates/search-header', categories: @categories
-
+= render 'product-level', level: @level, category: @category
 .detail
   = render 'templates/exhibition-btn'
   .detail__wrapper
     .detail__wrapper__product
       .detail__wrapper__product__name
-        商品サンプル
+        = @product.name
       .detail__wrapper__product__picts
         .detail__wrapper__product__picts__main
-          メインピクチャ
+          = image_tag @product.pictures[0].image.url, size: "600x400"
         %ul.detail__wrapper__product__picts__subs
+        - @product.pictures.each do |image|
           %li.detail__wrapper__product__picts__subs__li
-            サブピクチャ1
-          %li.detail__wrapper__product__picts__subs__li
-            サブピクチャ2
-          %li.detail__wrapper__product__picts__subs__li
-            サブピクチャ3
-          %li.detail__wrapper__product__picts__subs__li
-            サブピクチャ4
-
+            = image_tag image.image.url, size: "140x140", class:"detail__wrapper__product__picts__subs__li"
       .detail__wrapper__product__price
-        ¥30,000
+        = number_to_currency(@product.price)  
       (税込)送料込み
       .detail__wrapper__product__text
-        本商品の説明文
+        = @product.text
 
       %table.detail__wrapper__product__info{border: "1"}
         %tr
           %th 出品者
-          %td yamada
+          %td 
+            = @product.user.nickname
         %tr
           %th カテゴリー
           %td 
             .detail__wrapper__product__info_category
-              キッズ
+              = @product.category.parent.parent.name
             .detail__wrapper__product__info_category
-              アウター
+              = @product.category.parent.name
+            .detail__wrapper__product__info_category
+              = @product.category.name
+              
         %tr
           %th ブランド
           %td
+            = @product.brand
         %tr
           %th 商品のサイズ
           %td
+            = @product.size.text
         %tr
           %th 商品の状態
-          %td 未使用に近い
+          %td 
+            = @product.status.text
         %tr
           %th 配送料の負担
-          %td 送料込み（出品者負担）
+          %td 
+            = @product.postage.text
         %tr
           %th 発送元の地域
-          %td 岩手県
+          %td 
+            = @product.area.name
         %tr
           %th 発送の目安
-          %td 4-7日で発送
+          %td 
+            = @product.shipping_date.text
+      .detail__wrapper__product__links
+        - if user_signed_in? && current_user.id == @product.user_id
+          .detail__wrapper__product__links__edit
+            = link_to "商品を編集する",  "#", class: "detail__wrapper__product__links__edit__btn"
+          .detail__wrapper__product__links__delete
+            = link_to "商品を削除する", "#", method: :delete, class: "detail__wrapper__product__links__delete__btn"
+        - else
+          - if @product.purchase == false
+            .detail__wrapper__product__links__buy
+              = link_to "購入画面に進む", "#", class: "detail__wrapper__product__links__buy__btn"
+          - else
+            .detail__wrapper__product__links__status
+              .detail__wrapper__product__links__status__true
+                購入済の商品です
 
       .detail__wrapper__product__under
         .detail__wrapper__product__under__favorite
@@ -75,7 +93,6 @@
             = icon('fas','comment')
             コメントする
             = form.submit '%', class:"detail__wrapper__comments__form__submit--btn"
-    
     .detail__wrapper__selecter
       .detail__wrapper__selecter__prev
         = link_to "< 前の商品", "#", class:"detail__wrapper__selecter__prev--link"
@@ -84,9 +101,11 @@
 
     .detail__wrapper__other-products
       .detail__wrapper__other-products__title
-        キッズをもっと見る
-
-      = render 'templates/product-overview'
-      
+        = @product.category.name
+        をもっと見る
+      .detail__wrapper__other-products__list
+        - @products.each_with_index do |product, n|  
+          .detail__wrapper__other-products__list__overview    
+            = render 'templates/product-overview', product: product      
 
 = render 'templates/download-footer'

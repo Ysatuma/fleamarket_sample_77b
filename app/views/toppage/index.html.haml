@@ -2,7 +2,6 @@
 = render 'templates/search-header', categories: @categories
 
 .main
-  = render 'templates/exhibition-btn'
 
   .main__visual
     = image_tag "main/visual/bg-mainVisual-pict_pc.jpg", class:"main__visual__image"
@@ -110,15 +109,10 @@
         ピックアップカテゴリー
       .main__pickup__categories__new-items
         = link_to "新規登録商品", '#', class:'main__pickup__categories__new-items--link'
-      %ul.main__pickup__categories__products
-        %li.main__pickup__categories__products__item
-          puroduct1
-        %li.main__pickup__categories__products__item
-          puroduct2
-        %li.main__pickup__categories__products__item
-          puroduct3
-        %li.main__pickup__categories__products__item
-          puroduct4 
+      .main__pickup__categories__products
+        - @products.each_with_index do |product, n|
+          .main__pickup__categories__products__item
+            = render 'templates/product-overview', product: product
           
     .main__pickup__brand
       .main__pickup__brand__title
@@ -126,14 +120,8 @@
       .main__pickup__brand__new-items
         = link_to "アーカイバ", '#', class:'main__pickup__brand__new-items--link'
       %ul.main__pickup__brand__products
-        %li.main__pickup__brand__products__item
-          puroduct1
-        %li.main__pickup__brand__products__item
-          puroduct2
-        %li.main__pickup__brand__products__item
-          puroduct3
-        %li.main__pickup__brand__products__item
-          puroduct4   
-
+        - @products.each_with_index do |product, n|
+          .main__pickup__brand__products__item
+            = render 'templates/product-overview', product: product
 
 = render 'templates/download-footer'

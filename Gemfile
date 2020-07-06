@@ -50,6 +50,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'gimei'
 
   gem 'pry-rails'
 end
@@ -82,7 +83,11 @@ end
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'font-awesome-sass'
+gem 'carrierwave'
+gem 'mini_magick'
 
 #サーバーサイド側関連
 gem 'ancestry'
+gem 'devise'
 gem 'active_hash'
+gem 'fog-aws'

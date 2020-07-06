@@ -1,0 +1,31 @@
+= render 'templates/search-header', categories: @categories
+.user-menu
+  .user-menu__level
+    %span 
+      = link_to 'フリマ', root_path 
+    %span 
+      ＞ 
+    - case @code
+    - when '101'
+      %span マイページ
+    - else 
+      = link_to 'マイページ', user_menu_path(id: "101",  name: "マイページ")
+      %span 
+        = " ＞ お届け先住所変更"
+
+  .user-menu__main
+
+    -# ユーザーメニューのサイドバー
+    = render 'templates/usermenu-sidebar'
+    .user-menu__main__contents
+    
+      .user-edit-title プロフィール
+      =form_with model: @user, local: true, class: 'user-edit__form' do |f|
+        .user-edit__form__center
+          .user-edit__form__center__name
+            %p.user-edit__form__center__name__text ニックネーム
+          =f.text_field :nickname, placeholder: '入力をお願いします', class: 'user-edit__form__center__input'
+          .user-edit__form__center__comment
+            %p.user-edit__form__center__comment__text コメント欄
+          =f.text_area :comment, placeholder: '例）こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪', class: 'user-edit__form__center__textarea'
+          =f.submit "変更する", class:'user-edit__form__center__submit address-submit'

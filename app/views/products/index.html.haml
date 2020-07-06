@@ -1,0 +1,35 @@
+= render 'templates/search-header', categories: @categories
+
+= render 'product-level', level: @level, category: @category
+
+.product-list
+
+  -# 全体一覧
+  - if @view_all
+    - @categories.each do |category|
+      .product-list__categories
+        .product-list__categories__name
+          = "#{category.name}の商品一覧"
+        .product-list__categories__children
+          - category.children.each do |child| 
+            .product-list__categories__children__name
+              = link_to products_path(id: child.id,all_view:'false'), class:"product-list__categories__children__name--link" do
+                -# 子カテゴリー
+                = child.name
+            .product-list__categories__children__g-child
+              - child.children.each do |g_child|    
+                .product-list__categories__children__g-child__list
+                  = link_to products_path(id: g_child.id, all_view:'false'), class:"product-list__categories__children__g-child__list--link" do
+                    -# 孫カテゴリー
+                    = g_child.name
+        .product-list__categories__back-to-top
+          = icon('fas','arrow-up')
+          ページ最上部へ移動
+  - else
+    = render 'category-list', category: @category
+    .product-list__products
+      - @products.each_with_index do |product, n|
+        .product-list__products__overview
+          = render 'templates/product-overview', product: product
+
+= render 'templates/download-footer'

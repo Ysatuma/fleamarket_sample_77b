@@ -36,4 +36,8 @@ $(function(){
   
     })
   
+    $('.search-header__lower__products__categories__lists').on('mouseenter', function(e){
+      $(this).css("cursor","pointer");
+      
+    })
 })

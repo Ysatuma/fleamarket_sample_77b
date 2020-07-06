@@ -1,0 +1,61 @@
+= render 'templates/search-header', categories: @categories
+.user-menu
+  .user-menu__level
+    %span 
+      = link_to 'フリマ', root_path 
+    %span 
+      ＞ 
+    - case @code
+    - when '101'
+      %span マイページ
+    - else 
+      = link_to 'マイページ', user_menu_path(id: "101",  name: "マイページ")
+      %span 
+        = " ＞ お届け先住所変更"
+
+  .user-menu__main
+
+    -# ユーザーメニューのサイドバー
+    = render 'templates/usermenu-sidebar'
+    .user-menu__main__contents
+    
+      .address-new-title お届け先住所変更
+      =form_with model: [@user, @address], local: true, class: 'address-new-contents__form' do |f|
+        .address-new-contents__form__center
+          .address-new-contents__form__name.address-flex
+            %p.address-new-contents__form__name__text.addresses-text お名前
+            %p.address-new-contents__form__name__alert.addresses-alert 必須
+          =f.text_field :last_name, placeholder: '例)山田', class: 'address-new-contents__form__name__last address-frame'
+          %br
+          =f.text_field :first_name, placeholder: '例)彩', class: 'address-new-contents__form__name__first address-frame'
+          .address-new-contents__form__name-kana.address-flex
+            %p.address-new-contents__form__name-kana__text.addresses-text お名前カナ
+            %p.address-new-contents__form__name-kana__alert.addresses-alert 必須
+          =f.text_field :last_name_kana, placeholder: '例)ヤマダ', class: 'address-new-contents__form__name-kana-last address-frame'
+          %br
+          =f.text_field :first_name_kana, placeholder: '例)アヤ', class: 'address-new-contents__form__name-kana-first address-frame'
+          .address-new-contents__form__zip.address-flex
+            %p.address-new-contents__form__zip__text.addresses-text 郵便番号
+            %p.address-new-contents__form__zip__alert.addresses-alert 必須
+          =f.text_field :zip, placeholder: '例)123-4567', class: 'address-new-contents__form__zip-input address-frame', maxlength: 7
+          .address-new-contents__form__area.address-flex
+            %p.address-new-contents__form__area__text.addresses-text 都道府県
+            %p.address-new-contents__form__area__alert.addresses-alert 必須
+          =f.collection_select :area_id, Area.all, :id, :name, { prompt: "選択して下さい" }, { class: 'address-new-contents__form__area address-frame' }
+          .address-new-contents__form__city.address-flex
+            %p.address-new-contents__form__city__text.addresses-text 市区町村
+            %p.address-new-contents__form__city__alert.addresses-alert 必須
+          =f.text_field :city, placeholder: '例)横浜市緑区', class: 'address-new-contents__form__city-input address-frame'
+          .address-new-contents__form__num.address-flex
+            %p.address-new-contents__form__num__text.addresses-text 番地
+            %p.address-new-contents__form__num__alert.addresses-alert 必須
+          =f.text_field :number, placeholder: '例)青山1-1-1', class: 'address-new-contents__form__num-input address-frame'
+          .address-new-contents__form__building.address-flex
+            %p.address-new-contents__form__building__text.addresses-text 建物名
+            %p.address-new-contents__form__building__any.addresses-any 任意
+          =f.text_field :building, placeholder: '例)青山1-1-1', class: 'address-new-contents__form__building-input address-frame'
+          .address-new-contents__form__phone.address-flex
+            %p.address-new-contents__form__phone__text.addresses-text 電話
+            %p.address-new-contents__form__phone__any.addresses-any 任意
+          =f.text_field :phonenumber, placeholder: '例)青山1-1-1', class: 'address-new-contents__form__building-input address-frame'
+          =f.submit "変更する", class:'address-new-contents__form__building-submit address-submit'

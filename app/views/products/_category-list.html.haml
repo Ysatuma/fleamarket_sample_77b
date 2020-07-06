@@ -1,0 +1,8 @@
+.category-list
+  .category-list__name
+    = "#{category.name}の商品一覧"
+  .category-list__children
+    - category.children.each do |child|
+      .category-list__children__links
+        = link_to products_path(id: child.id, all_view:'false'), class:"category-list__children__links--link" do
+          = child.name

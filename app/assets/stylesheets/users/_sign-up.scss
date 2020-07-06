@@ -1,10 +1,11 @@
 .account__sign-up__page{
   background-color: #f5f5f5;
+  width: 100%;
   min-height: 100vh;
   position: relative;
   .signup__main{
     &--white{
-      margin-left: 382px;
+      margin: 0 auto;
       @include boxsize(700px,auto);
       background-color: white;
       &__top{
