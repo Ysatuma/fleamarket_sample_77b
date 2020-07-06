@@ -40,19 +40,9 @@ class ProductsController < ApplicationController
   end
 
 
-  # 商品詳細画面の表示
-  def show
-    @product = Product.find(params[:id])
-    @categories = Category.where(ancestry: nil)
-    @category = Category.find(params[:category_id])
-    @level = @category.depth
-
-    # 同一カテゴリの商品を取得
-    @products = Product.where(category_id: params[:category_id])
-  end
-
   #購入確認画面の表示
-  def show2
+  def new
+    @product = Product.includes(:user).find(params[:id])
     if current_user.blank?
       redirect_to new_user_session_path
     elsif @product.user.id == current_user.id || @product.purchase == true #購入済みの場合または出品者と購入ユーザーが一致している場合
@@ -69,6 +59,18 @@ class ProductsController < ApplicationController
         @user_address = user_address(current_user)
       end
     end
+  end
+
+
+  # 商品詳細画面の表示
+  def show
+    @product = Product.find(params[:id])
+    @categories = Category.where(ancestry: nil)
+    @category = Category.find(params[:category_id])
+    @level = @category.depth
+
+    # 同一カテゴリの商品を取得
+    @products = Product.where(category_id: params[:category_id])
   end
 
   # 出品している商品の削除処理
