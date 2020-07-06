@@ -87,6 +87,6 @@
       .products-new__contents__form__btn
         =f.submit '出品する', class: 'products-new__contents__form__btn__submit'
         -# ↓リンク先未指定
-        =link_to 'もどる', '#', class: 'products-new__contents__form__btn__back'
+        =link_to 'もどる', root_path, class: 'products-new__contents__form__btn__back'
 .simple-footer
   =render 'templates/logo-footer'

@@ -38,50 +38,15 @@ class ProductsController < ApplicationController
     end
   end
 
-
-  # 商品出品画面の表示
-  def new
-    @product = Product.new
-    @product.pictures.new
-
-    @categories = Category.where(ancestry: nil)
-
-    @category1 = []
-    @category2 = []
-    @category3 = []
-
-    # 親レコードを取得
-    @categories.each do |root|
-      @category1.push([root.name, root.id])
-    end    
-  end
-
-
-  # 出品した商品の出品処理
-  def create
-    @product = Product.new(product_params)
-
-    # 画像データがあるか
-    if params[:product][:pictures_attributes] != nil
-      if @product.save  
-      else
-        redirect_to action: :new
-      end
-    else
-      redirect_to action: :new
-    end
-
-  end
-
+  # 商品詳細画面の表示
   def show
     @product = Product.find(params[:id])
     @categories = Category.where(ancestry: nil)
 
-  # 商品詳細画面の表示
     @category = Category.find(params[:category_id])
     @level = @category.depth
 
-    # # 同一カテゴリの商品及び対応する写真一覧を取得
+    # 同一カテゴリの商品を取得
     @products = Product.where(category_id: params[:category_id])
   end
   
