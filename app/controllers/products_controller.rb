@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :get_categories, only: [:index, :show]
+  before_action :set_product, only: :show2
   before_action :check_user_login, only: [:new, :create]
   
   # 商品一覧画面の表示
@@ -49,7 +50,26 @@ class ProductsController < ApplicationController
     # 同一カテゴリの商品を取得
     @products = Product.where(category_id: params[:category_id])
   end
-  
+
+  #購入確認画面の表示
+  def show2
+    if current_user.blank?
+      redirect_to new_user_session_path
+    elsif @product.user.id == current_user.id || @product.purchase == true #購入済みの場合または出品者と購入ユーザーが一致している場合
+      redirect_to root_path
+    else
+      if @card = current_user.card #現在のユーザーがカードを登録しているなら
+        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+        customer = Payjp::Customer.retrieve(@card.customer_id)
+        @default_card_information = customer.cards.retrieve(@card.card_id)
+        @expiration = card_expiration(@default_card_information)
+      end
+      if current_user.address.present? #現在のユーザーが届け先住所を登録しているなら
+        @zipcode = zipcode(current_user)
+        @user_address = user_address(current_user)
+      end
+    end
+  end
 
   def destroy
     product = Product.find(params[:id])
@@ -70,15 +90,36 @@ class ProductsController < ApplicationController
     @categories = Category.where(ancestry: nil)
   end
   
+  def user_index
+    @categories = Category.where(ancestry: nil)
+    @products = Product.group(:product_id).where(user_id: params[:user_id], purchase: false)
+  end
 
   def product_params  
-    
     params.require(:product).permit(:name, :text, :price, :brand, :status, :category_id, :size_id, :status_id, :postage_id, :area_id, :shipping_date_id, pictures_attributes: [:image]).merge(user_id: current_user.id)
+  end
+
+  def zipcode(user) #郵便番号に-を入れ込む
+    str = user.address.zip.to_s
+    return str.insert(3, "-")
+  end
+
+  def user_address(user) #ユーザー届け先住所を連結
+    return user.address.area.name + user.address.city + user.address.number + user.address.building
+  end
+
+  def card_expiration(card_info) #カード情報の有効期限をビュー表示用に変化
+    exp_month = card_info.exp_month.to_s
+    exp_year = card_info.exp_year.to_s.slice(2,3)
+    return exp_month + " / " + exp_year
+  end
+
+  def set_product #商品情報を引っ張ってくる
+    @product = Product.find(params[:id])
   end
 
   # ログインしているかをチェックする
   def check_user_login
     redirect_to root_path unless user_signed_in?
   end
-
 end

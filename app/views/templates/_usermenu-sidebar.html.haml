@@ -57,7 +57,10 @@
         .user-menu__main__list__mypage__arrow
           ＞
     %li
-      = render "templates/list", code:303 ,name:"支払い方法"
+      = link_to "/card", class:"user-menu__main__list__mypage--link" do
+        = "支払い方法"       
+        .user-menu__main__list__mypage__arrow
+          ＞
     %li
       = render "templates/list", code:304 ,name:"メール/パスワード"
     %li

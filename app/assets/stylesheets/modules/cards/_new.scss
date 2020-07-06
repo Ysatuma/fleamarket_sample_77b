@@ -1,0 +1,91 @@
+.card-new__title {
+  font-size: 26px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 1px solid $borderColor;
+  padding: 10px 0 10px;
+}
+.card-new__time {
+  text-align: center;
+}
+.card-new__number {
+  display: flex;
+  width: 50%;
+  margin: 10px auto 0;
+  &__text {
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px 4px 4px 4px;
+  }
+}
+.card-new__period {
+  display: flex;
+  width: calc( 40% + 45px );
+  margin: 0 auto;
+  &__text {
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px 4px 4px 4px;
+  }
+}
+.card-new__month {
+  height: 40px;
+  width: 20%;
+  border: 1px solid $textColor;
+  border-radius: 4px 4px 4px 4px;
+}
+.card-new__year {
+  height: 40px;
+  width: 20%;
+  border: 1px solid $textColor;
+  border-radius: 4px 4px 4px 4px;
+}
+
+#card_number {
+  width: 50%;
+  height: 40px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid $textColor;
+  border-radius: 4px 4px 4px 4px;
+}
+.card-new__security {
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+  &__text {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+#cvc {
+  width: 50%;
+  height: 40px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px 4px 4px 4px;
+  border: 1px solid $textColor;
+}
+#token_submit {
+  background-color: rgb(255, 2, 17);
+  display: block;
+  border: 1px solid $textColor;
+  border-radius: 4px 4px 4px 4px;
+  width: 50%;
+  height: 43px;
+  color: white;
+  margin: 16px auto;
+  cursor: pointer;
+}
+.card-alert {
+  background-color: rgb(255, 2, 17);
+  color: white;
+  margin-left: 8px;
+  width: 40px;
+  padding: 0 4px 0;
+  font-size: 16px;
+  font-weight: bold;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 4px 4px 4px 4px;
+}

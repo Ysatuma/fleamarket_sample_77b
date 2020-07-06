@@ -1,0 +1,71 @@
+.header
+  = render partial: 'templates/logo-header'
+.contents
+  .content
+    .contet__title
+      .content__title__name
+        購入内容の確認
+    .content__product
+      .content__product__items
+        .content__product__items__img
+          = image_tag @product.pictures[0].image.url, size: "64x64"
+        .content__product__items__name
+          = @product.name
+          %p
+            = number_to_currency(@product.price)
+            （税込）送料込み
+    .content__price
+      .content__price__show
+        支払い金額
+      .content__price__shipping-fee
+        = number_to_currency(@product.price)
+    .content__credit
+      -if @card
+        .content__credit__title
+          支払い方法
+          =link_to card_index_path, target: :_blank, class:"content__credit__title__edit" do
+            変更する
+        .content__credit__box  
+          .content__credit__box__name
+            クレジットカード
+          .content__credit__box__number
+            = "**** **** **** " + @default_card_information.last4
+          .content__credit__box__day
+            = @expiration
+      -else
+        .content__credit__title
+          支払い方法
+        .content__creadit__btn
+          =link_to new_card_path, target: :_blank, class:"content__creadit__btn__link show2-btn" do
+            支払い方法を登録する
+    .content__address
+      -if current_user.address
+        .content__address__title
+          配送先
+          =link_to new_user_address_path(current_user), target: :_blank, class:"content__address__title__edit" do
+            変更する  
+        .content__address__box
+          .content__address__box__zip
+            = "〒#{@zipcode}"
+          .content__address__box__number
+            = @user_address
+          .content__address__box__name
+            = current_user.address.last_name + current_user.address.first_name
+      -else
+        .content__address__title
+          配送先
+        .content__address__btn
+          =link_to new_user_address_path(current_user), target: :_blank, class:"content__address__btn__link show2-btn" do
+            配送先を登録する
+    .content__buy
+      -if current_user.address && @card
+        .content__buy__btn
+          =link_to product_card_path(@product.id), method: :post, class:"content__buy__btn__submit" do
+            購入する
+      -else
+        .content__buy__btn.refusing-box
+          支払い方法または配送先の情報が
+          %br
+          足りません
+.footer
+  = render partial: 'templates/logo-footer'

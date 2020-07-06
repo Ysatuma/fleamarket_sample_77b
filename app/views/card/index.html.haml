@@ -1,0 +1,37 @@
+= render 'templates/search-header', categories: @categories
+
+.user-menu
+  .user-menu__level
+    %span 
+      = link_to 'フリマ', root_path 
+    %span 
+      ＞ 
+    - case @code
+    - when '101'
+      %span マイページ
+    - else 
+      = link_to 'マイページ', user_menu_path(id: "101",  name: "マイページ")
+      %span 
+        = " ＞ 支払い方法"
+
+  .user-menu__main
+
+    -# ユーザーメニューのサイドバー
+    = render 'templates/usermenu-sidebar'
+
+    -# ユーザーメニューのコンテンツ部分
+    .user-menu__main__contents
+      .card-index__title 支払い方法
+      - if @card
+        .card-index__box
+          %label.card-index__box__inf 登録クレジットカード情報
+          %br
+          .card-index__box__num= "**** **** **** " + @default_card_information.last4
+          %br
+          .card-index__box__date= @card_exp
+          = form_tag card_path(@card.id), method: :delete, id: 'charge-form',  name: "inputForm" do
+            %input{ type: "hidden", name: "card_id", value: "" }
+            %button.delete-btn 削除する
+      - else
+        = link_to "カード情報を登録する", new_card_path, class: "card-index-registry-btn"
+          

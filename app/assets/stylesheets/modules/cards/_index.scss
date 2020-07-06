@@ -1,0 +1,48 @@
+.card-index__title {
+  font-size: 26px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 1px solid $borderColor;
+  padding: 10px 0 10px;
+}
+
+.card-index__box {
+  &__inf {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px;
+  }
+  &__num {
+    text-align: center;
+  }
+  &__date {
+    text-align: center;
+  }
+}
+.delete-btn {
+  background-color: rgb(255, 2, 17);
+  display: block;
+  border: 1px solid $textColor;
+  border-radius: 4px 4px 4px 4px;
+  width: 200px;
+  height: 43px;
+  color: white;
+  margin: 16px auto;
+  cursor: pointer;
+}
+
+.card-index-registry-btn {
+  text-decoration: none;
+  background-color: rgb(255, 2, 17);
+  display: block;
+  border: 1px solid $textColor;
+  border-radius: 4px 4px 4px 4px;
+  width: 50%;
+  height: 43px;
+  color: white;
+  margin: 32px auto;
+  cursor: pointer;
+  line-height: 45px;
+  text-align: center;
+}

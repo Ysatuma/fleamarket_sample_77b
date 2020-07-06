@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Address, type: :model do
   let(:user) { create(:user) }
-  context 'userを保存できる場合' do
+  context 'addressを保存できる場合' do
     it 'first_name,last_name,first_name_kana,last_name_kana,city,number,area_id,user_idがあれば保存できること' do
       address = build(:address, user_id: user.id, building: nil, phonenumber: nil)
       expect(address).to be_valid

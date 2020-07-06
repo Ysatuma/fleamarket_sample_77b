@@ -15,4 +15,5 @@ class User < ApplicationRecord
 
   has_one :address
   has_many :products
+  has_one :card
 end

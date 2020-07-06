@@ -43,6 +43,18 @@
         @include set_bold_string(35px);
       }
 
+      &__purchase{
+        margin: 20px 0px;
+
+        &--link{
+          background-color: $top-color;
+          padding: 15px 120px;
+          color: #FFFFFF;
+          @include set_bold_string(24px);
+          text-decoration: none;
+        }
+      }
+
       &__text{
         font-size: 18px;
         text-align: left;

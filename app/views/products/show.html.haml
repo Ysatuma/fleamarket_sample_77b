@@ -67,7 +67,7 @@
         - else
           - if @product.purchase == false
             .detail__wrapper__product__links__buy
-              = link_to "購入画面に進む", "#", class: "detail__wrapper__product__links__buy__btn"
+              = link_to "購入画面に進む", "/products/show2/#{@product.id}", class: "detail__wrapper__product__links__buy__btn"
           - else
             .detail__wrapper__product__links__status
               .detail__wrapper__product__links__status__true
